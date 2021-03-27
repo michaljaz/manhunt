@@ -15,9 +15,9 @@ public class MyCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             PlayerInventory inventory = player.getInventory();
-            ItemStack itemstack = new ItemStack(Material.DIAMOND, 64);
+            ItemStack itemstack = new ItemStack(Material.COMPASS, 1);
             inventory.addItem(itemstack);
-            player.sendMessage("You got 64 diamonds!!");
+            player.sendMessage("You got compass!");
         } else {
             sender.sendMessage("You must be a player!");
             return false;

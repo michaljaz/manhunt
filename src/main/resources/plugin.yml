@@ -3,6 +3,6 @@ version: "1.0"
 name: "ManHunt"
 
 commands:
-  mh:
+  compass:
     description: lul
-    usage: /mh xd
+    usage: /compass

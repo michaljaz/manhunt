@@ -11,7 +11,7 @@ public class Main extends JavaPlugin {
         this.saveDefaultConfig();
         getLogger().info(ChatColor.GREEN+"ENABLED MANHUNT PLUGIN!");
         // TODO : Do something if your plugin needs it (registering commands / listeners)
-        this.getCommand("mh").setExecutor(new MyCommand());
+        this.getCommand("compass").setExecutor(new MyCommand());
     }
 
     @Override
