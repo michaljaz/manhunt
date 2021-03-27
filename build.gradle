@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'me.michaljaz.manhunt'
+group 'com.github.michaljaz.manhunt'
 version '1.0-SNAPSHOT'
 
 // === Change this to match the workspace defined inside the start.sh script.
