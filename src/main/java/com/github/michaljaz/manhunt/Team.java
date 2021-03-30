@@ -12,10 +12,20 @@ import net.md_5.bungee.api.ChatColor;
 public class Team implements CommandExecutor {
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
+    public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            player.sendMessage("You want to join team!");
+            if(args.length > 0){
+                if(args[0].equalsIgnoreCase("runner")){
+                    player.sendMessage("You are runner!");
+                }else if(args[0].equalsIgnoreCase("hunter")){
+                    player.sendMessage("You are hunter!");
+                }else if(args[0].equalsIgnoreCase("spectator")){
+                    player.sendMessage("You are spectator!");
+                }else{
+                    player.sendMessage("Error!");
+                }
+            }
         } else {
             sender.sendMessage("You must be a player!");
         }

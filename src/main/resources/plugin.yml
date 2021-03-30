@@ -8,5 +8,5 @@ commands:
     usage: /compass
   team:
     description: Join team
-    usage: /team
+    usage: /<command> [hunter,runner,spectator]
   
