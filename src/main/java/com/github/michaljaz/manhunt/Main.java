@@ -2,6 +2,7 @@ package com.github.michaljaz.manhunt;
 
 import com.github.michaljaz.manhunt.Compass;
 import com.github.michaljaz.manhunt.Team;
+import com.github.michaljaz.manhunt.EventListener;
 import org.bukkit.plugin.java.JavaPlugin;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -19,6 +20,7 @@ public class Main extends JavaPlugin {
         // TODO : Do something if your plugin needs it (registering commands / listeners)
         this.getCommand("compass").setExecutor(new Compass());
         this.getCommand("team").setExecutor(new Team());
+        getServer().getPluginManager().registerEvents(new EventListener(), this);
     }
 
     @Override
