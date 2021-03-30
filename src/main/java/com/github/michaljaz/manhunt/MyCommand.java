@@ -1,4 +1,4 @@
-package com.github.michaljaz.manhunt.commands;
+package com.github.michaljaz.manhunt;
 
 import org.bukkit.Material;
 import org.bukkit.command.Command;
