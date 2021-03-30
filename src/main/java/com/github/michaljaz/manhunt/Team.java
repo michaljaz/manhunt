@@ -18,8 +18,7 @@ public class Team implements CommandExecutor {
             player.sendMessage("You want to join team!");
         } else {
             sender.sendMessage("You must be a player!");
-            return false;
         }
-        return false;
+        return true;
     }
 }

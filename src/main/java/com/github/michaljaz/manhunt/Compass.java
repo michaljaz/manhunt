@@ -21,8 +21,7 @@ public class Compass implements CommandExecutor {
             player.sendMessage("You got compass!");
         } else {
             sender.sendMessage("You must be a player!");
-            return false;
         }
-        return false;
+        return true;
     }
 }
