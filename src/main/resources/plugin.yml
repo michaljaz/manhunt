@@ -4,5 +4,9 @@ name: "ManHunt"
 
 commands:
   compass:
-    description: lul
+    description: get compass
     usage: /compass
+  team:
+    description: Join team
+    usage: /team
+  
