@@ -26,7 +26,9 @@ public class Compass implements CommandExecutor {
             meta.setDisplayName("Hunter compass");
             meta.setLore(Arrays.asList("This compass is pointing to runner."));
             meta.addEnchant(Enchantment.DURABILITY, 0, true);
-            meta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ENCHANTS});
+            meta.addItemFlags(new ItemFlag[] {
+                ItemFlag.HIDE_ENCHANTS
+            });
             itemstack.setItemMeta(meta);
             inventory.addItem(itemstack);
             player.sendMessage("You got compass!");

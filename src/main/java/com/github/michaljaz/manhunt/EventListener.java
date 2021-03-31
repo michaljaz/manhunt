@@ -9,14 +9,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.Material;
 
 public class EventListener implements Listener {
-	@EventHandler
-	public void onPlayerInteract(PlayerInteractEvent event) {
-		Action a = event.getAction();
-		ItemStack is = event.getItem();
-		if(a == Action.PHYSICAL || is == null || is.getType() == Material.AIR){
+    @EventHandler
+    public void onPlayerInteract(PlayerInteractEvent event) {
+        Action a = event.getAction();
+        ItemStack is = event.getItem();
+        if (a == Action.PHYSICAL || is == null || is.getType() == Material.AIR) {
             return;
-		}
-		Player player = (Player) event.getPlayer();
-		player.sendMessage("Interactract");
-	}
+        }
+        Player player = (Player) event.getPlayer();
+        player.sendMessage("Interactract");
+    }
 }

@@ -15,14 +15,14 @@ public class Team implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if(args.length > 0){
-                if(args[0].equalsIgnoreCase("runner")){
+            if (args.length > 0) {
+                if (args[0].equalsIgnoreCase("runner")) {
                     player.sendMessage("You are runner!");
-                }else if(args[0].equalsIgnoreCase("hunter")){
+                } else if (args[0].equalsIgnoreCase("hunter")) {
                     player.sendMessage("You are hunter!");
-                }else if(args[0].equalsIgnoreCase("spectator")){
+                } else if (args[0].equalsIgnoreCase("spectator")) {
                     player.sendMessage("You are spectator!");
-                }else{
+                } else {
                     player.sendMessage("Error!");
                 }
             }

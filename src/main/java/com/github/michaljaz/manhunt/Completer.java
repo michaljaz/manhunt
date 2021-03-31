@@ -9,17 +9,17 @@ import org.bukkit.entity.Player;
 
 public class Completer implements TabCompleter {
 
-	@Override
-    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-        List<String> list = new ArrayList<>();
-	    List<String> factions = new ArrayList<>();
-        factions.add("hunter");
-        factions.add("runner");
-        factions.add("spectator");
-        for (String faction : factions) {
-            if (!faction.toLowerCase().startsWith(args[0].toLowerCase())) continue;
-            list.add(faction);
+    @Override
+    public List < String > onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        List < String > list = new ArrayList < > ();
+        List < String > posibilities = new ArrayList < > ();
+        posibilities.add("hunter");
+        posibilities.add("runner");
+        posibilities.add("spectator");
+        for (String type: posibilities) {
+            if (!type.toLowerCase().startsWith(args[0].toLowerCase())) continue;
+            list.add(type);
         }
-	    return list;
+        return list;
     }
 }
