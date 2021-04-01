@@ -7,16 +7,32 @@ import org.bukkit.event.block.Action;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.meta.ItemMeta;
+import java.util.Arrays;
 
 public class EventListener implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         Action a = event.getAction();
         ItemStack is = event.getItem();
+        Player player = (Player) event.getPlayer();
+        ItemStack itemstack = new ItemStack(Material.COMPASS);
+        ItemMeta meta = itemstack.getItemMeta();
+        meta.setDisplayName("Hunter compass");
+        meta.setLore(Arrays.asList("This compass is pointing to runner."));
+        meta.addEnchant(Enchantment.DURABILITY, 0, true);
+        meta.addItemFlags(new ItemFlag[] {
+            ItemFlag.HIDE_ENCHANTS
+        });
+        itemstack.setItemMeta(meta);
+
         if (a == Action.PHYSICAL || is == null || is.getType() == Material.AIR) {
             return;
         }
-        Player player = (Player) event.getPlayer();
-        player.sendMessage("Interactract");
+        if (player.getInventory().getItemInHand().equals(itemstack)){
+            player.sendMessage("Ready to point hunter!");
+        }
     }
 }
