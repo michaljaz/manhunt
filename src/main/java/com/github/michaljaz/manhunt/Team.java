@@ -8,16 +8,25 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.plugin.Plugin;
+import com.github.michaljaz.manhunt.Main;
+import org.bukkit.configuration.file.FileConfiguration;
 
 public class Team implements CommandExecutor {
 
+    private Plugin plugin = Main.getPlugin(Main.class);
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
+        FileConfiguration config = plugin.getConfig();
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (args.length > 0) {
                 if (args[0].equalsIgnoreCase("runner")) {
                     player.sendMessage("You are runner!");
+                    config.set("runnerNick",player.getName());
+                    config.options().copyDefaults(true);
+                    plugin.saveConfig();
                 } else if (args[0].equalsIgnoreCase("hunter")) {
                     player.sendMessage("You are hunter!");
                 } else if (args[0].equalsIgnoreCase("spectator")) {
