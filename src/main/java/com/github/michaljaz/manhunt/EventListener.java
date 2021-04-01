@@ -11,10 +11,18 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.meta.ItemMeta;
 import java.util.Arrays;
+import org.bukkit.plugin.Plugin;
+import com.github.michaljaz.manhunt.Main;
+import org.bukkit.configuration.file.FileConfiguration;
+import net.md_5.bungee.api.ChatColor;
 
 public class EventListener implements Listener {
+
+    private Plugin plugin = Main.getPlugin(Main.class);
+
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
+        FileConfiguration config = plugin.getConfig();
         Action a = event.getAction();
         ItemStack is = event.getItem();
         Player player = (Player) event.getPlayer();
@@ -32,7 +40,15 @@ public class EventListener implements Listener {
             return;
         }
         if (player.getInventory().getItemInHand().equals(itemstack)){
-            player.sendMessage("Ready to point hunter!");
+            String runner=config.getString("runnerNick");
+            
+            if(plugin.getServer().getPlayer(runner) != null){
+                player.sendMessage("Compass is pointing to "+ChatColor.GREEN+runner);
+                player.setCompassTarget(plugin.getServer().getPlayer(runner).getLocation());
+            }else{
+                player.sendMessage(ChatColor.RED+"No runners found");
+            }
+            
         }
     }
 }

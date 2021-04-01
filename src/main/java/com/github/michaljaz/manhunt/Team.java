@@ -11,7 +11,6 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.plugin.Plugin;
 import com.github.michaljaz.manhunt.Main;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.Bukkit;
 
 public class Team implements CommandExecutor {
 
