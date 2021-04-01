@@ -11,6 +11,7 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.plugin.Plugin;
 import com.github.michaljaz.manhunt.Main;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.Bukkit;
 
 public class Team implements CommandExecutor {
 
@@ -23,14 +24,14 @@ public class Team implements CommandExecutor {
             Player player = (Player) sender;
             if (args.length > 0) {
                 if (args[0].equalsIgnoreCase("runner")) {
-                    player.sendMessage("You are runner!");
+                    plugin.getServer().broadcastMessage(player.getName()+" joined team "+ChatColor.GREEN+"RUNNER");
                     config.set("runnerNick",player.getName());
                     config.options().copyDefaults(true);
                     plugin.saveConfig();
                 } else if (args[0].equalsIgnoreCase("hunter")) {
-                    player.sendMessage("You are hunter!");
+                    plugin.getServer().broadcastMessage(player.getName()+" joined team "+ChatColor.RED+"HUNTER");
                 } else if (args[0].equalsIgnoreCase("spectator")) {
-                    player.sendMessage("You are spectator!");
+                    plugin.getServer().broadcastMessage(player.getName()+" joined team "+ChatColor.BLUE+"SPECTATOR");
                 } else {
                     player.sendMessage("Error!");
                 }
