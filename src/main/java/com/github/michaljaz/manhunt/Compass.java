@@ -1,7 +1,6 @@
 package com.github.michaljaz.manhunt;
 
 import java.util.Arrays;
-import java.util.ArrayList;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,7 +8,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -26,7 +24,7 @@ public class Compass implements CommandExecutor {
             meta.setLore(Arrays.asList("This compass is pointing to runner."));
             meta.addEnchant(Enchantment.DURABILITY, 0, true);
             meta.addItemFlags(new ItemFlag[] {
-                ItemFlag.HIDE_ENCHANTS
+                    ItemFlag.HIDE_ENCHANTS
             });
             itemstack.setItemMeta(meta);
             inventory.addItem(itemstack);

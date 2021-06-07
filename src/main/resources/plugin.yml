@@ -1,7 +1,7 @@
-main: "com.github.michaljaz.manhunt.Main"
-version: "1.0"
-name: "ManHunt"
-
+name: ManHunt
+version: @version@
+main: com.github.michaljaz.manhunt.Main
+api-version: 1.16
 commands:
   compass:
     description: get compass
@@ -9,4 +9,4 @@ commands:
   team:
     description: Join team
     usage: /<command> [hunter,runner,spectator]
-  
+

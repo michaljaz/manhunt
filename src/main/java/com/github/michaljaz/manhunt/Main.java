@@ -1,17 +1,8 @@
 package com.github.michaljaz.manhunt;
 
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.Command;
-import java.util.List;
-import java.util.ArrayList;
-import org.bukkit.plugin.java.JavaPlugin;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
-
-import com.github.michaljaz.manhunt.Compass;
-import com.github.michaljaz.manhunt.Completer;
-import com.github.michaljaz.manhunt.Team;
-import com.github.michaljaz.manhunt.EventListener;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
     @Override

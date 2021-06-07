@@ -5,7 +5,6 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.Command;
 import java.util.List;
-import org.bukkit.entity.Player;
 
 public class Completer implements TabCompleter {
 
