@@ -1,0 +1,14 @@
+name: Build JAR
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd android && ./gradlew build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ManHunt
+          path: build/libs/ManHunt-1.0-SNAPSHOT.jar
