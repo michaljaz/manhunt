@@ -11,7 +11,7 @@ import org.bukkit.plugin.Plugin;
 
 public class Team implements CommandExecutor {
 
-    private Plugin plugin = Main.getPlugin(Main.class);
+    private final Plugin plugin = Main.getPlugin(Main.class);
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {

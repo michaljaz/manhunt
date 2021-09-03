@@ -9,4 +9,7 @@ commands:
   team:
     description: Join team
     usage: /<command> [hunter,runner,spectator]
+  start:
+    description: Start manhunt
+    usage: /start
 

@@ -11,28 +11,29 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.meta.ItemMeta;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Objects;
+
 import org.bukkit.plugin.Plugin;
 import org.bukkit.configuration.file.FileConfiguration;
 import net.md_5.bungee.api.ChatColor;
 
 public class EventListener implements Listener {
 
-    private Plugin plugin = Main.getPlugin(Main.class);
+    private final Plugin plugin = Main.getPlugin(Main.class);
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         FileConfiguration config = plugin.getConfig();
         Action a = event.getAction();
         ItemStack is = event.getItem();
-        Player player = (Player) event.getPlayer();
+        Player player = event.getPlayer();
         ItemStack itemstack = new ItemStack(Material.COMPASS);
         ItemMeta meta = itemstack.getItemMeta();
         meta.setDisplayName("Hunter compass");
-        meta.setLore(Arrays.asList("This compass is pointing to runner."));
+        meta.setLore(Collections.singletonList("This compass is pointing to runner."));
         meta.addEnchant(Enchantment.DURABILITY, 0, true);
-        meta.addItemFlags(new ItemFlag[] {
-                ItemFlag.HIDE_ENCHANTS
-        });
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         itemstack.setItemMeta(meta);
 
         if (a == Action.PHYSICAL || is == null || is.getType() == Material.AIR) {
@@ -41,9 +42,9 @@ public class EventListener implements Listener {
         if (player.getInventory().getItemInHand().equals(itemstack)){
             String runner=config.getString("runnerNick");
 
-            if(plugin.getServer().getPlayer(runner) != null){
+            if(runner != null && plugin.getServer().getPlayer(runner) != null){
                 player.sendMessage("Compass is pointing to "+ChatColor.GREEN+runner);
-                player.setCompassTarget(plugin.getServer().getPlayer(runner).getLocation());
+                player.setCompassTarget(Objects.requireNonNull(plugin.getServer().getPlayer(runner)).getLocation());
             }else{
                 player.sendMessage(ChatColor.RED+"No runners found");
             }

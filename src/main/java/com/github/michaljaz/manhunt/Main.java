@@ -18,6 +18,7 @@ public class Main extends JavaPlugin {
         this.getCommand("compass").setExecutor(new Compass());
         this.getCommand("team").setExecutor(new Team());
         this.getCommand("team").setTabCompleter(new Completer());
+        this.getCommand("start").setExecutor(new Start());
         getServer().getPluginManager().registerEvents(new EventListener(), this);
     }
 

@@ -12,21 +12,12 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class Compass implements CommandExecutor {
+public class Start implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            PlayerInventory inventory = player.getInventory();
-            ItemStack itemstack = new ItemStack(Material.COMPASS, 1);
-            ItemMeta meta = itemstack.getItemMeta();
-            meta.setDisplayName("Hunter compass");
-            meta.setLore(Arrays.asList("This compass is pointing to runner."));
-            meta.addEnchant(Enchantment.DURABILITY, 0, true);
-            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-            itemstack.setItemMeta(meta);
-            inventory.addItem(itemstack);
-            player.sendMessage("You got compass!");
+            player.sendMessage("Starting...");
         } else {
             sender.sendMessage("You must be a player!");
         }
