@@ -11,4 +11,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: ManHunt
-          path: build/libs/ManHunt-1.0-SNAPSHOT.jar
+          path: build/libs/ManHunt-1.0.jar

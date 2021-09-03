@@ -1,6 +1,7 @@
 package com.github.michaljaz.manhunt;
 
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,10 +24,13 @@ public class Team implements CommandExecutor {
                     config.set("runnerNick",player.getName());
                     config.options().copyDefaults(true);
                     plugin.saveConfig();
+                    player.setGameMode(GameMode.SURVIVAL);
                 } else if (args[0].equalsIgnoreCase("hunter")) {
                     plugin.getServer().broadcastMessage(player.getName()+" joined team "+ChatColor.RED+"HUNTER");
+                    player.setGameMode(GameMode.SURVIVAL);
                 } else if (args[0].equalsIgnoreCase("spectator")) {
                     plugin.getServer().broadcastMessage(player.getName()+" joined team "+ChatColor.BLUE+"SPECTATOR");
+                    player.setGameMode(GameMode.SPECTATOR);
                 } else {
                     player.sendMessage("Error!");
                 }

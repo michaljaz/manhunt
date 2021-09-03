@@ -1,7 +1,7 @@
 name: ManHunt
 version: @version@
 main: com.github.michaljaz.manhunt.Main
-api-version: 1.16
+api-version: 1.17
 commands:
   compass:
     description: get compass
