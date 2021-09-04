@@ -11,11 +11,11 @@ public class Completer implements TabCompleter {
     @Override
     public List < String > onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List < String > list = new ArrayList < > ();
-        List < String > posibilities = new ArrayList < > ();
-        posibilities.add("hunter");
-        posibilities.add("runner");
-        posibilities.add("spectator");
-        for (String type: posibilities) {
+        List < String > possibilities = new ArrayList < > ();
+        possibilities.add("hunter");
+        possibilities.add("runner");
+        possibilities.add("spectator");
+        for (String type: possibilities) {
             if (!type.toLowerCase().startsWith(args[0].toLowerCase())) continue;
             list.add(type);
         }

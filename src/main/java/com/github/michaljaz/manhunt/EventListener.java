@@ -4,16 +4,15 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerPortalEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.meta.ItemMeta;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Objects;
-
 import org.bukkit.plugin.Plugin;
 import org.bukkit.configuration.file.FileConfiguration;
 import net.md_5.bungee.api.ChatColor;
@@ -21,6 +20,15 @@ import net.md_5.bungee.api.ChatColor;
 public class EventListener implements Listener {
 
     private final Plugin plugin = Main.getPlugin(Main.class);
+
+    @EventHandler
+    public void portal(PlayerPortalEvent event){
+
+        Player player = event.getPlayer();
+        if(plugin.getConfig().getString("runnerNick").equals(player.getName())){
+            plugin.getServer().broadcastMessage("runner is in "+event.getTo().getWorld().getName());
+        }
+    }
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
